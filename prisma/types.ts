@@ -7,11 +7,20 @@
  * the createdAt field to be optional, it is genereated by Prisma.
  */
 
-interface Client {
+interface Owner {
   id?: number,
   createdAt?: Date,
   name: string,
   email: string,
 }
 
-export { Client };
+interface Pet {
+  id?: number,
+  createdAt?: Date,
+  name: string,
+  specie: string,
+  breed: string,
+  ownerId: number,
+}
+
+export { Owner, Pet };
