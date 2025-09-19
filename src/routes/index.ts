@@ -1,12 +1,14 @@
 import Express, { Router } from 'express';
 import { getOwner, getOwners } from '../controllers/clientsController.js';
+import { getPets } from '../controllers/petsController.ts';
 const router: Router = Express.Router();
 
-// router.get('/', (req: Request, res: Response, next: NextFunction) => {
-//   res.json('hi');
-//   next();
-// });
-router.get('/owners', getOwners);
-router.get('/owners/:id', getOwner);
+const currentApiVersion: string = 'v1';
+const apiSlug: string = '/api/' + currentApiVersion;
+
+router.get(`${apiSlug}/owners`, getOwners);
+router.get(`${apiSlug}/owners/:id`, getOwner);
+
+router.get(`${apiSlug}/pets`, getPets);
 
 export default router;
